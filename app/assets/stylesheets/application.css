@@ -13,3 +13,295 @@
  *= require_tree .
  *= require_self
  */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+}
+
+body {
+  background-color: #eee;
+  font-size: 16px;
+  color: #333;
+}
+
+/* エラーメッセージ */
+.error-message {
+  margin-bottom: 20px;
+}
+
+.error-message li {
+  color: #f00;
+  font-size: 14px;
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+/* フラッシュメッセージ */
+.flash {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  align-items: center;
+  color: #fff;
+  padding: 10px 30px;
+}
+
+.notice {
+  background-color: #333;
+}
+
+.alert {
+  background-color: #f00;
+}
+
+
+/* ヘッダー */
+header {
+  background-color: rgb(255, 139, 100);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 20px;
+}
+
+.app-name {
+  font-size: 50px;
+}
+
+.app-name a {
+  color: #fff;
+}
+
+::placeholder {
+  color: #aaa;
+  font-weight: 400;
+}
+
+/* ドロップダウンメニュー */
+.dropdown {
+  margin-right: 0;
+}
+
+.dropdown input[type="checkbox"] {
+  display: none;
+}
+
+.dropdown label {
+  cursor: pointer;
+}
+
+.dropdown .submenu {
+  display: none;
+}
+
+.dropdown input[type="checkbox"]:checked+label+.submenu {
+  display: block;
+}
+
+.dropdown-username {
+  color: #fff;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.dropdown label {
+  position: relative;
+  display: inline-block;
+  padding: 10px 26px 10px 10px;
+  background-color: rgb(255, 139, 100);
+
+  &::after {
+    display: inline-block;
+    margin-right: 5px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+  }
+}
+
+.signin-display {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.dropdown-icon img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.dropdown-username::after {
+  content: "\25BC";
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.submenu {
+  padding: 10px;
+  border: 1px solid #2F4858;
+  list-style: none;
+  background-color: #fff;
+}
+
+/* ログインしていない時のヘッダーメニュー */
+.signin-menu {
+  margin-top: 24px;
+}
+
+.signin-menu ul {
+  display: flex;
+}
+
+.signin-menu li {
+  list-style-type: none;
+  font-weight: 600;
+}
+
+.signin-menu li:not(:last-child) {
+  margin-right: 20px;
+}
+
+/* ログイン・新規登録ページ */
+.login-signin-page {
+  padding: 30px 300px;
+}
+
+.login-signin-form {
+  background-color: #fbfbfb;
+  padding: 30px;
+  text-align: left;
+}
+
+.login-signin-form h2 {
+  margin-bottom: 20px;
+}
+
+.login-signin-form label {
+  margin-right: 0;
+}
+
+.login-signin-form label::after {
+  content: "*";
+  color: #f00;
+  padding-left: 3px;
+}
+
+.field span {
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+.login-signin-form input {
+  height: 40px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.actions-button {
+  background-color: rgb(189, 0, 0);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 0;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.actions-button:hover {
+  background-color: rgb(219, 89, 89);
+  cursor: pointer;
+}
+
+.link-button {
+  display: inline-block;
+  background-color: #eee;
+  border: 1px #aaa solid ;
+  border-radius: 5px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.link-button:hover {
+  background-color: #f6f6f6;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+/* アカウント情報・プロフィール情報の編集 */
+.accountProfile-edit-page {
+  padding: 30px 300px;
+}
+
+.accountProfile-edit-form {
+  background-color: #fbfbfb;
+  padding: 30px;
+  text-align: left;
+}
+
+.accountProfile-edit-form h2 {
+  margin-bottom: 20px;
+}
+
+.accountProfile-edit-form label {
+  margin-right: 0;
+}
+
+.accountProfile-edit-form input {
+  height: 40px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.current-password-label::after {
+  content: "*";
+  color: #f00;
+  padding-left: 3px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.actions-button {
+  background-color: rgb(189, 0, 0);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 0;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.actions-button:hover {
+  background-color: rgb(219, 89, 89);
+  cursor: pointer;
+}

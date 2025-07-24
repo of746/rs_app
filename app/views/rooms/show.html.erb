@@ -1,0 +1,60 @@
+<div class="facility-detail_container">
+  <div class="back_link"><%= link_to "戻る", :back %></div>
+    <div class="facility-detail">
+      <div class="facility-detail-image">
+        <% if @room.facility_image.attached? %>
+          <%= image_tag @room.facility_image, alt: "施設画像" %>
+        <% else %>
+          <%= image_tag '/assets/default.png', alt: "施設画像" %>
+        <% end %>
+      </div>
+
+      <div class="facility-aboutForm_wrapper">
+        <div class="facility-about">
+          <h3 class="facility-detail-facilityName"><%= @room.facility_name %></h3>
+          <p class="facility-detail-address"><%= @room.address %></p>
+          <p class="facility-detail-facilityIntroduction"><%= @room.facility_Introduction %></p>
+        </div>
+
+        <div class="facility-reservationForm">
+          <%= form_with scope: :reservation, url: confirm_reservations_path, method: :post do |f| %>
+            <%= f.hidden_field :room_id, value: @room.id %>
+            <div class="form-field-wrapper">
+              <div class="form-field">
+                <div>
+                  <%= f.label :checkin_date, "チェックイン日" %>
+                  <%= f.date_field :checkin_date %>
+                </div>
+
+                <div>
+                  <%= f.label :checkout_date, "チェックアウト日" %>
+                  <%= f.date_field :checkout_date %>
+                </div>
+
+                <div>
+                  <%= f.label :number_of_people, "人数" %>
+                  <%= f.number_field :number_of_people, min: 1 %>
+                </div>
+              </div>
+
+              <ul class = "error-message">
+                <% @reservation.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+
+            </div>
+
+            <% if user_signed_in? %>
+            <!-- ユーザーがログインしていた時の処理 -->
+              <div class="reservation_link"><%= f.submit "予約する" %></div>
+            <% else %>
+            <!-- ユーザーがログインしていなかった時の処理 -->
+              <div class="signin_link"><%= link_to "ログイン", new_user_session_path, class: 'post' %></div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

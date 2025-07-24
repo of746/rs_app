@@ -1,0 +1,49 @@
+<div class="facility-newEdit">
+  <div class="facility-newEdit_form">
+    <h2>施設の新規登録</h2>
+      <%= form_with model: @room, local: true, html: { multipart: true } do |f| %>
+
+        <ul class = "error-message">
+          <% @room.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+
+      <table>
+        <tr>
+          <th><div class="mgn-btm"><%= f.label :facility_name, "施設名", class: "facility-form-label" %></div></th>
+          <td><div class="mgn-btm"><%= f.text_field :facility_name, placeholder: "施設名を入力" %></div></td>
+        </tr>
+
+        <tr>
+          <th><div class="mgn-btm"><%= f.label :facility_Introduction, "施設詳細", class: "facility-form-label" %></div></th>
+          <td><div class="mgn-btm"><%= f.text_area :facility_Introduction, placeholder: "施設詳細を入力" %></div></td>
+        </tr>
+
+        <tr>
+          <th><div class="mgn-btm"><%= f.label :fee, "宿泊料金 (/日)", class: "facility-form-label" %></div></th>
+          <td><div class="mgn-btm"><%= f.number_field :fee %></div></td>
+        </tr>
+
+        <tr>
+          <th><div class="mgn-btm"><%= f.label :address, "住所", class: "facility-form-label" %></div></th>
+          <td><div class="mgn-btm"><%= f.text_field :address, placeholder: "住所を入力" %></div></td>
+        </tr>
+
+        <tr>
+          <th><div class="mgn-btm"><%= f.label :facility_image, "施設画像" %></div></th>
+          <td><div class="mgn-btm"><%= f.file_field :facility_image %></div></td>
+        </tr>
+      </table>
+
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <div class="facility-newEdit_form-button">
+        <ul>
+          <li><%= f.submit "保存" %></li>
+          <li><button><%= link_to "登録済み一覧に戻る", :rooms %></button></li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>

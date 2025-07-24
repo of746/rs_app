@@ -1,0 +1,40 @@
+<div class="reservation-confirm-page">
+  <div class="reservation-confirm">
+    <h2>予約確認</h2>
+
+    <table>
+      <tr>
+        <th>チェックイン</th>
+        <td><%= @reservation.checkin_date.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <th>チェックアウト</th>
+        <td><%= @reservation.checkout_date.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <th>宿泊日数</th>
+        <td><%= @reservation.stay_days %>日</td>
+      </tr>
+      <tr>
+        <th>人数</th>
+        <td><%= @reservation.number_of_people %>人</td>
+      </tr>
+      <tr>
+        <th>支払い金額</th>
+        <td>¥<%= @reservation.total_price.to_s(:delimited) %></td>
+      </tr>
+    </table>
+
+    <%= form_with model: @reservation, url: reservation_path(@reservation), method: :patch, local: true do |f| %>
+      <%= f.hidden_field :room_id %>
+      <%= f.hidden_field :checkin_date %>
+      <%= f.hidden_field :checkout_date %>
+      <%= f.hidden_field :number_of_people %>
+      <p class="confirm-text">上記内容で正しければ「確定」ボタンを押してください。</p>
+      <%= f.submit "予約を確定", class: "reservation-button" %>
+    <% end %>
+
+    <button class="exit-button"><%= link_to '修正する', edit_reservation_path(@reservation), method: :get %></button>
+  </div>
+</div>
+

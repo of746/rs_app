@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  checkin_date: 2025-07-17
+  checkout_date: 2025-07-17
+  number_of_people: 1
+
+two:
+  checkin_date: 2025-07-17
+  checkout_date: 2025-07-17
+  number_of_people: 1

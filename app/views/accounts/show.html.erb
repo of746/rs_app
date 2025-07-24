@@ -1,0 +1,28 @@
+<div class="account-info-page">
+  <div class="account-info-container">
+    <div class="account-info-link-wrapper">
+      <h3>設定</h3>
+      <ul>
+        <li class="account-info-link-list"><%= link_to "アカウント情報", :account, class: "account-info-link" %></li> <!-- アカウント情報に移行する -->
+        <li class="account-info-link-list"><%= link_to "プロフィール情報", :profiles %></li> <!-- プロフィール情報に移行する -->
+      </ul>
+    </div>
+
+    <div class="account-info">
+      <h2>アカウント情報</h2>
+
+      <table>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th>パスワード</th>
+          <td>********</td>
+        </tr>
+      <table>
+
+      <%= link_to "編集", :edit_user_registration, class: "account-link" %> <!-- アカウント編集に移行する -->
+    </div>
+  </div>
+</div>

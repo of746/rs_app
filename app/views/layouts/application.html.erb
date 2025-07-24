@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Reservation</title>
+    <title>宿泊予約アプリ</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,52 @@
   </head>
 
   <body>
+    <header>
+      <div class="app-name"><%= link_to "宿泊予約アプリ", "/" %></div>
+      <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+        <!-- ユーザーがログインしていた時の処理 -->
+        <!-- ドロップダウンメニュー -->
+        <div class="dropdown">
+          <input type="checkbox" id="submenu-toggle">
+          <label for="submenu-toggle" class="checkbox">
+          <div class="signin-display">
+            <div class="dropdown-icon"> <!-- アイコン画像を表示 -->
+              <% if current_user.icon.attached? %>
+                <%= image_tag current_user.icon, alt: "アイコン画像" %>
+              <% else %>
+                <%= image_tag '/assets/icon.png', alt: "アイコン画像" %>
+              <% end %>
+            </div>
+            <div class="dropdown-username"><%= current_user.name %></div> <!-- 名前を表示 -->
+          </div>
+          </label>
+          <ul class="submenu">
+            <li><%= link_to "施設の新規登録", :new_room %></li>
+            <li><%= link_to "登録済み一覧", :rooms %></li>
+            <li><%= link_to "予約済み一覧", :reservations %></li>
+            <li><%= link_to "アカウント情報", :account %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      <% else %>
+        <!-- ユーザーがログインしていなかった時の処理 -->
+        <div class="signin-menu">
+          <ul>
+            <li><%= link_to "ログイン", new_user_session_path, class: 'post' %></li> <!-- ログイン画面に移行する -->
+            <li><%= link_to "新規登録", new_user_registration_path, class: 'post' %></li> <!-- 新規登録画面に移行する -->
+          </ul>
+        </div>
+      <% end %>
+    </header>
+
     <%= yield %>
+
+    <!-- フラッシュメッセージ -->
+      <% if flash[:notice] %>
+        <div class="flash notice"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="flash alert"><%= flash[:alert] %></div>
+      <% end %>
   </body>
 </html>

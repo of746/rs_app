@@ -1,0 +1,108 @@
+// Place all the styles related to the Reservations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* 予約済み一覧（index） */
+.reservation-list {
+  padding: 50px;
+}
+
+.reservation-list h2 {
+  margin-bottom: 20px;
+}
+
+.reservation-list table {
+  border-collapse: separate;
+  border-spacing: 0;
+  padding-bottom: 10px;
+  table-layout:fixed;
+}
+
+.reservation-list th:first-child, .reservation-list td:first-child {
+  padding-left: 10px;
+}
+
+.reservation-list th {
+  background-color: rgb(255, 192, 55);
+  text-align: left;
+  padding: 10px 10px 10px 0;
+}
+
+.reservation-list td:nth-child(3) {
+  width: 200px;
+}
+
+.reservation-list td {
+  padding: 10px 10px 10px 0;
+  background-color: #fbfbfb;
+  border-bottom: 1px #5e5e5e solid;
+  overflow-wrap: anywhere;
+}
+
+.reservation-list img {
+  width: 100px;
+}
+
+.reservation-list a {
+  color: rgb(0, 68, 255);
+  font-weight: 600;
+}
+
+/* 確認ページ（confirm） */
+.reservation-confirm-page {
+  padding: 30px 200px;
+}
+
+.reservation-confirm {
+  background-color: #fbfbfb;
+  padding: 30px;
+}
+
+.reservation-confirm h2 {
+  margin-bottom: 20px;
+}
+
+.reservation-confirm table {
+  width: 100%;
+  border-spacing: 0 20px;
+}
+
+.reservation-confirm th {
+  text-align: left;
+}
+
+.reservation-confirm td {
+  text-align: right;
+}
+
+.confirm-text {
+  margin-bottom: 20px;
+}
+
+.reservation-button {
+  background-color: rgb(189, 0, 0);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.reservation-button:hover {
+  background-color: rgb(219, 89, 89);
+  cursor: pointer;
+}
+
+.exit-button {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.exit-button a {
+  display: inline-block;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+

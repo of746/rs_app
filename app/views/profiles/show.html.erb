@@ -1,0 +1,38 @@
+<div class="profile-info-page">
+  <div class="profile-info-container">
+    <div class="profile-info-link-wrapper">
+      <h3>設定</h3>
+      <ul>
+        <li class="profile-info-link-list"><%= link_to "アカウント情報", :account %></li> <!-- アカウント情報に移行する -->
+        <li class="profile-info-link-list"><%= link_to "プロフィール情報", :profiles, class: "profile-info-link" %></li> <!-- プロフィール情報に移行する -->
+      </ul>
+    </div>
+
+    <div class="profile-info">
+      <h2>プロフィール情報</h2>
+
+      <table>
+        <tr>
+          <th>アイコン画像</th>
+          <td>
+            <% if @user.icon.attached? %>
+              <%= image_tag @user.icon, alt: "アイコン画像", class: "profile-icon-image" %>
+            <% else %>
+              <%= image_tag '/assets/icon.png', alt: "アイコン画像", class: "profile-icon-image" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>名前</th>
+          <td><%= @user.name.presence || "未設定" %></td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td><%= simple_format(@user.introduction.presence || "未入力") %></td>
+        </tr>
+      <table>
+
+      <%= link_to "編集", :edit_profiles, class: "profile-link" %> <!-- プロフイール編集に移行する -->
+    </div>
+  </div>
+</div>

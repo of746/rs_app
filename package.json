@@ -1,5 +1,5 @@
 {
-  "name":"rs_app",
+  "name": "rs_app",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
